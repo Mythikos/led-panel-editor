@@ -1,12 +1,12 @@
 # LED Panel Editor
 
-This started as a fun reverse engineering test with an old LED panel that was found
-in storage, with no drivers or original software to go with it. I wanted to see
-if I could figure out how to change its messages.
+I found an old LED panel in storage with no drivers or original software to go
+with it, and wanted to see if I could figure out how to change its messages.
+This started as a fun reverse engineering test.
 
 With the help of **GPT-6 Astra**, I worked through identifying the connection,
 understanding the panel's protocol, backing up its original message, and getting
-our own text onto the display. That grew into a Windows desktop editor built with
+my own text onto the display. That grew into a Windows desktop editor I built with
 **C# and WPF on .NET 10**, with message queues, effects, a live simulation, and
 permanent uploads. The panel still runs its original firmware.
 
@@ -14,7 +14,7 @@ permanent uploads. The panel still runs its original firmware.
 
 [Watch the panel demo (MP4)](assets/Demo.mp4).
 
-## What we made
+## What I made
 
 The editor loads the messages currently configured on the panel and lets you edit
 their text, order, colors, fonts, entry/exit effects, speed, alignment, and pause.
@@ -27,8 +27,8 @@ executable, with no local web server or additional programming language required
 
 ## The panel
 
-The label was our starting point, and reading information back from the panel
-confirmed its dimensions and protocol version.
+I started with the label, then read information back from the panel to confirm
+its dimensions and protocol version.
 
 | Detail | Observed hardware |
 | --- | --- |
@@ -56,16 +56,17 @@ writes new message files, and reads them back to check every byte. It then switc
 the playlist and checks that the first message is playing. The original message
 and its backup are preserved so the editor can restore them later.
 
-A few of the interesting parts came from watching what the physical panel actually
+I figured out a few of the quirks by watching what the physical panel actually
 did. Long text in **Line** mode forces continuous scrolling and overrides several
-effects, while **Pages** mode lets those effects work on wrapped text. We also found
+effects, while **Pages** mode lets those effects work on wrapped text. I also found
 that an extra playback command could skip the first queued message, and that the
 inherited date/weekday schedule could leave an otherwise valid message blank.
 Uploads now use an always-play schedule and let the playlist write start playback.
 
-"Hello world!" was confirmed on the display and returned after a physical power
-cycle. Queued messages, flashing, alignment, vertical movement, pause, and original
-message restoration were also checked on the hardware. The
+I confirmed that "Hello world!" appeared on the display and returned after
+disconnecting and reconnecting the power. I also checked queued messages,
+flashing, alignment, vertical movement, pause, and original message restoration
+on the hardware. The
 [protocol notes](docs/protocol.md) record the packet formats and firmware quirks,
 and [validation notes](docs/desktop-validation.md) separate automated checks from
 what was observed on the panel.
@@ -178,6 +179,6 @@ WPF dependency. Required adapter helpers belong to
 `src/LedPanel.Desktop/Networking/Scripts/` and are copied into the application output.
 See [coding standards](docs/coding-standards.md) for the C# conventions.
 
-This implementation has been tested on the TFI-16X128-50RG panel described above.
-Firmware extraction, date/time scheduling, sound control, and support for other
-controllers remain outside its scope.
+I tested this on the TFI-16X128-50RG panel described above. I haven't implemented
+firmware extraction, date/time scheduling, sound control, or support for other
+controllers.
