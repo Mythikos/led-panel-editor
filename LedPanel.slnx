@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="src/LedPanel.Core/LedPanel.Core.csproj" />
+  <Project Path="src/LedPanel.Desktop/LedPanel.Desktop.csproj" />
+  <Project Path="tests/LedPanel.Core.Tests/LedPanel.Core.Tests.csproj" />
+  <Project Path="tests/LedPanel.Desktop.Tests/LedPanel.Desktop.Tests.csproj" />
+</Solution>

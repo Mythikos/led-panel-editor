@@ -1,0 +1,30 @@
+# Only intentional project files and directories are eligible at the root.
+/*
+!/.editorconfig
+!/.gitignore
+!/.globalconfig
+!/AGENTS.md
+!/Directory.Build.props
+!/LedPanel.slnx
+!/README.md
+!/panel.example.json
+!/assets/
+!/docs/
+!/src/
+!/tests/
+
+# Only reviewed public media. New photos/videos require explicit review.
+/assets/*
+!/assets/MainWindow.png
+!/assets/Demo.mp4
+
+# Local runtime data and generated/development output stay private anywhere.
+**/bin/
+**/obj/
+**/TestResults/
+**/data/
+**/panel.json
+__pycache__/
+*.py[cod]
+*.user
+*.suo

@@ -1,0 +1,6 @@
+{
+  "host": "192.0.2.1",
+  "source": "192.0.2.2",
+  "mac": "replace with the MAC on your panel label",
+  "adapter_id": "replace with the selected USB Ethernet adapter PnPDeviceID"
+}

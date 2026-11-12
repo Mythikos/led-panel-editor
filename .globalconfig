@@ -1,0 +1,3 @@
+is_global = true
+# Generated APIs are owned by their generator. Authored files opt back in below.
+dotnet_diagnostic.CS1591.severity = none
